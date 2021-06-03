@@ -76,7 +76,6 @@ public class DoublyLinkedList {
             System.out.println("list is empty");
         }
         else {
-            //Node current = head;
             head = head.next;
         }
     }
