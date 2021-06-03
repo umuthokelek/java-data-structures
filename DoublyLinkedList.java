@@ -18,7 +18,7 @@ public class DoublyLinkedList {
 
     void addToStart(int value) {
         Node newItem = new Node(value);
-        if (head == null) {
+        if (isEmpty()) {
             head = newItem;
             newItem.next = null;
             newItem.previous = null;
