@@ -2,9 +2,9 @@ import java.util.NoSuchElementException;
 
 public class Queue<T> {
 
-    private class Node {
+    private class Node<T> {
         private T data;
-        private Node next;
+        private Node<T> next;
 
         public Node() {
             data = null;
@@ -16,19 +16,19 @@ public class Queue<T> {
         }
     }
 
-    private Node head;
+    private Node<T> head;
 
     public Queue() {
         head = null;
     }
 
     public boolean enqueue(T item) {
-        Node newItem = new Node(item);
+        Node<T> newItem = new Node<T>(item);
         if (isEmpty()) {
             head = newItem;
         }
         else {
-            Node position = head;
+            Node<T> position = head;
             while (position.next != null) {
                 position = position.next;
             }
@@ -42,11 +42,11 @@ public class Queue<T> {
             throw new NoSuchElementException();
         }
         else {
-            Node position = head;
+            Node<T> position = head;
             while (position.next.next != null) {
                 position = position.next;
             }
-            Node tail = position.next;
+            Node<T> tail = position.next;
             position.next = null;
             return tail.data;
         }
@@ -57,7 +57,7 @@ public class Queue<T> {
             throw new NoSuchElementException();
         }
         else {
-            Node position = head;
+            Node<T> position = head;
             while (position.next != null) {
                 position = position.next;
             }
@@ -66,7 +66,7 @@ public class Queue<T> {
     }
  
     public void print() {
-        Node position = head;
+        Node<T> position = head;
         while(position != null) {
             System.out.print(position.data + " ");
             position = position.next;

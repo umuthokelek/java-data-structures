@@ -1,8 +1,8 @@
 public class Set<T> {
 
-    private class Node {
+    private class Node<T> {
         private T data;
-        private Node next;
+        private Node<T> next;
 
         public Node() {
             data = null;
@@ -14,7 +14,7 @@ public class Set<T> {
         }
     }
 
-    private Node head;
+    private Node<T> head;
 
     public Set() {
         head = null;
@@ -22,7 +22,7 @@ public class Set<T> {
 
     public boolean add(T newItem) {
         if (isEmpty()) {
-            head = new Node(newItem);
+            head = new Node<T>(newItem);
             return true;
         }
         else {
@@ -30,7 +30,7 @@ public class Set<T> {
                 return false;
             }
             else {
-                Node position = head;
+                Node<T> position = head;
                 while (position.next != null) {
                     position = position.next;
                 }
@@ -44,7 +44,7 @@ public class Set<T> {
     public Set<T> intersection(Set<T> otherSet) {
         Set<T> interset = new Set<T>();
 
-        Node position = otherSet.head;
+        Node<T> position = otherSet.head;
         while (position != null) {
 
             if (contains(position.data)) {
@@ -58,13 +58,13 @@ public class Set<T> {
     public Set<T> union(Set<T> otherSet) {
         Set<T> uni = new Set<T>();
 
-        Node positionSet = head;
+        Node<T> positionSet = head;
         while (positionSet != null) {
             uni.add(positionSet.data);
             positionSet = positionSet.next;
         }
 
-        Node position = otherSet.head;
+        Node<T> position = otherSet.head;
         while (position != null) {
             if (!contains(position.data)) {
                 uni.add(position.data);
@@ -76,7 +76,7 @@ public class Set<T> {
     }
 
     public boolean contains(T item) {
-        Node position = head;
+        Node<T> position = head;
         while (position != null) {
             if (position.data.equals(item)) {
                 return true;
@@ -88,7 +88,7 @@ public class Set<T> {
 
 
     public void print() {
-        Node position = head;
+        Node<T> position = head;
         while (position != null) {
             System.out.print(position.data + " ");
             position = position.next;

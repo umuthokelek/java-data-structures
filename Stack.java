@@ -2,9 +2,9 @@ import java.util.EmptyStackException;
 
 public class Stack<T> {
 
-    private class Node {
+    private class Node<T> {
         private T data;
-        private Node next;
+        private Node<T> next;
 
         public Node() {
             data = null;
@@ -16,14 +16,14 @@ public class Stack<T> {
         }
     }
 
-    private Node head;
+    private Node<T> head;
 
     public Stack() {
         head = null;
     }
 
     public boolean push(T item) {
-        Node newItem = new Node(item);
+        Node<T> newItem = new Node<T>(item);
         if (isEmpty()) {
             head = newItem;
         }
@@ -39,7 +39,7 @@ public class Stack<T> {
             throw new EmptyStackException();
         }
         else {
-            Node popItem = head;
+            Node<T> popItem = head;
             head = head.next;
             return popItem.data;
         }
@@ -55,7 +55,7 @@ public class Stack<T> {
     }
 
     public void print() {
-        Node position = head;
+        Node<T> position = head;
         while(position != null) {
             System.out.print(position.data + " ");
             position = position.next;
