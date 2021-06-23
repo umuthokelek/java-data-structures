@@ -23,7 +23,6 @@ public class Set<T> {
     public boolean add(T newItem) {
         if (isEmpty()) {
             head = new Node(newItem);
-            head.next = null;
             return true;
         }
         else {

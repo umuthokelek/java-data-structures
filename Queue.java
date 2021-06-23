@@ -26,7 +26,6 @@ public class Queue<T> {
         Node newItem = new Node(item);
         if (isEmpty()) {
             head = newItem;
-            //head.next = null;
         }
         else {
             Node position = head;

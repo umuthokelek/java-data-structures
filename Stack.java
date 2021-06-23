@@ -26,7 +26,6 @@ public class Stack<T> {
         Node newItem = new Node(item);
         if (isEmpty()) {
             head = newItem;
-            head.next = null;
         }
         else {
             newItem.next = head;
